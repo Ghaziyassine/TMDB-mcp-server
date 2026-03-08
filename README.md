@@ -79,7 +79,7 @@ Add the `mcpServers` section:
 }
 ```
 
-Replace `YOUR_USERNAME` with your actual Windows username and `your_api_key_here` with your TMDB API key. Restart Gemini CLI after saving.
+Replace `/absolute/path/to/index.js` with your actual path  and `your_api_key_here` with your TMDB API key. Restart Gemini CLI after saving.
 
 ---
 
