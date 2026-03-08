@@ -1,0 +1,23 @@
+{
+  "name": "tmdb-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server that gives Claude access to The Movie Database (TMDB) API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "tmdb",
+    "movies",
+    "claude",
+    "anthropic"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.3.1"
+  }
+}
