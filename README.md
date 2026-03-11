@@ -4,7 +4,9 @@ Gives Claude (or any MCP client) full access to The Movie Database API.
 No npm dependencies — uses Node.js 18+ native `fetch`.
 
 ---
-
+```bash
+Claude (LLM)  ←──JSON-RPC 2.0──→  MCP Server (Node.js)  ←──REST──→  TMDB API via stdio
+```
 ## Quick Start
 
 ### 1. Get a free TMDB API key
