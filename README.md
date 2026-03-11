@@ -4,8 +4,32 @@ Gives Claude (or any MCP client) full access to The Movie Database API.
 No npm dependencies — uses Node.js 18+ native `fetch`.
 
 ---
-```bash
-Claude (LLM)  ←──JSON-RPC 2.0──→  MCP Server (Node.js)  ←──REST──→  TMDB API via stdio
+
+
+### Flow diagram for the MCP process
+```
+┌─────────────────────────────────────────────────────┐
+│  MCP Host (Claude Desktop / Gemini CLI)             │
+│                                                     │
+│  1. spawn node index.js                             │
+│  2. initialize handshake                            │
+│  3. inject tool list into LLM system prompt         │
+│                                                     │
+│  User: "trending movies this week?"                 │
+│     ↓  LLM decides to call get_trending             │
+│  4. tools/call → stdin                              │
+│                    ↓                                │
+│             ┌─────────────────┐                     │
+│             │  Node.js Server │                     │
+│             │  handleRequest()│                     │
+│             │  handleToolCall │                     │
+│             │  tmdb() fetch   │──── GET ───→ TMDB   │
+│             │  formatMovie()  │←─── JSON ──── TMDB  │
+│             └─────────────────┘                     │
+│                    ↓                                │
+│  5. result → stdout → LLM context                   │
+│  6. Claude formule sa réponse finale                │
+└─────────────────────────────────────────────────────┘
 ```
 ## Quick Start
 
